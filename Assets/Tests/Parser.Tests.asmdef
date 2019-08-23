@@ -1,0 +1,19 @@
+{
+    "name": "Parser.Tests",
+    "references": [
+        "GUID:8a667beaa80b5f24c9e3648c48791715"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
