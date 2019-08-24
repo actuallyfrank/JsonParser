@@ -28,7 +28,7 @@ namespace Tests
         {
             TeacherParser teacherParser = new TeacherParser(schoolJsonData);
 
-            teacherParser.Parse();
+            teacherParser.ParseFullJson();
 
             Subject first = teacherParser.subjectData[0];
             Assert.AreEqual(1, first.id);
@@ -46,7 +46,7 @@ namespace Tests
         {
             TeacherParser teacherParser = new TeacherParser(schoolJsonData);
 
-            teacherParser.Parse();
+            teacherParser.ParseFullJson();
 
             Userdata first = teacherParser.userData[0];
             Assert.AreEqual("Roy", first.name);
@@ -59,7 +59,6 @@ namespace Tests
             Assert.AreEqual("Riannon", last.surname);
             Assert.AreEqual("FEMALE", last.gender);
             Assert.AreEqual(383180400, last.birthday);
-
         }
     }
 }

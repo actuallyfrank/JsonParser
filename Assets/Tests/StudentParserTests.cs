@@ -28,7 +28,7 @@ namespace Tests
         {
             StudentParser studentParser = new StudentParser(schoolJsonData);
 
-            studentParser.Parse();
+            studentParser.ParseFullJson();
 
             Userdata first = studentParser.userData[0];
             Assert.AreEqual("Roy", first.name);
@@ -48,7 +48,7 @@ namespace Tests
         {
             StudentParser studentParser = new StudentParser(schoolJsonData);
 
-            studentParser.Parse();
+            studentParser.ParseFullJson();
 
             Class first = studentParser.classesData[0];
             Assert.AreEqual(1, first.id);

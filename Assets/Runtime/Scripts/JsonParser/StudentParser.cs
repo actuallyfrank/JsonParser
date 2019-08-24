@@ -16,9 +16,9 @@ namespace Assets.Runtime.Scripts.JsonParser
         {
         }
 
-        public override void Parse()
+        public override void ParseFullJson()
         {
-            JObject data = JObject.Parse(jsonData);
+            JObject data = JObject.Parse(JsonData);
             IList<JToken> userDataResults = data["userdata"].Children().ToList();
             IList<JToken> classesDataResults = data["classes"].Children().ToList();
 
