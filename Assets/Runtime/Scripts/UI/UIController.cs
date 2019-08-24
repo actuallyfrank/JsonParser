@@ -31,13 +31,13 @@ public class UIController : MonoBehaviour
         TeacherParser parser = new TeacherParser(SchoolDataJson.text);
         parser.ParseFullJson();
 
-        foreach (var item in parser.userData)
+        foreach (var item in parser.SchoolData.userdata)
         {
             UserDataText.text += item + "\n";
             yield return new WaitForSeconds(0.5f);
         }
 
-        foreach (var item in parser.subjectData)
+        foreach (var item in parser.SchoolData.subjects)
         {
             SubjectDataText.text += item + "\n";
             yield return new WaitForSeconds(0.5f);
@@ -49,13 +49,13 @@ public class UIController : MonoBehaviour
         StudentParser parser = new StudentParser(SchoolDataJson.text);
         parser.ParseFullJson();
 
-        foreach (var item in parser.userData)
+        foreach (var item in parser.SchoolData.userdata)
         {
             UserDataText.text += item + "\n";
             yield return new WaitForSeconds(0.5f);
         }
 
-        foreach (var item in parser.classesData)
+        foreach (var item in parser.SchoolData.classes)
         {
             ClassesDataText.text += item + "\n";
             yield return new WaitForSeconds(0.5f);
