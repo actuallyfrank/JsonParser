@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Assets.Runtime.Scripts.JsonParser
 {
-    public class StudentParser : JsonParser
+    public class StudentParser : SchoolParser
     {
-        public List<Userdata> userData { get; private set; }
-        public List<Class> classesData { get; private set; }
 
         public StudentParser(string jsonData) : base(jsonData)
         {
@@ -22,8 +20,8 @@ namespace Assets.Runtime.Scripts.JsonParser
             IList<JToken> userDataResults = data["userdata"].Children().ToList();
             IList<JToken> classesDataResults = data["classes"].Children().ToList();
 
-            userData = ConvertJTokensToList<Userdata>(userDataResults);
-            classesData = ConvertJTokensToList<Class>(classesDataResults);
+            SchoolData.userdata = ConvertJTokensToList<Userdata>(userDataResults);
+            SchoolData.classes = ConvertJTokensToList<Class>(classesDataResults);
         }
     }
 }

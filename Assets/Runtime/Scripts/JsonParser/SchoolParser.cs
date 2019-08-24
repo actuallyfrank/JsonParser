@@ -7,15 +7,16 @@ using UnityEngine;
 
 namespace Assets.Runtime.Scripts.JsonParser
 {
-    public class JsonParser : IParser
+    public class SchoolParser : IParser
     {
         public string JsonData { get; private set; }
 
         public SchoolData SchoolData { get; private set; }
 
-        public JsonParser(string jsonData)
+        public SchoolParser(string jsonData)
         {
             this.JsonData = jsonData;
+            this.SchoolData = new SchoolData();
         }
 
         public virtual void ParseFullJson()

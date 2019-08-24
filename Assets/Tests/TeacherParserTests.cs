@@ -30,12 +30,12 @@ namespace Tests
 
             teacherParser.ParseFullJson();
 
-            Subject first = teacherParser.subjectData[0];
+            Subject first = teacherParser.SchoolData.subjects[0];
             Assert.AreEqual(1, first.id);
             Assert.AreEqual("Chemistry", first.name);
             Assert.AreEqual("Chem.", first.@short);
 
-            Subject last = teacherParser.subjectData[teacherParser.subjectData.Count - 1];
+            Subject last = teacherParser.SchoolData.subjects[teacherParser.SchoolData.subjects.Count - 1];
             Assert.AreEqual(4, last.id);
             Assert.AreEqual("Language", last.name);
             Assert.AreEqual("Lang.", last.@short);
@@ -48,13 +48,13 @@ namespace Tests
 
             teacherParser.ParseFullJson();
 
-            Userdata first = teacherParser.userData[0];
+            Userdata first = teacherParser.SchoolData.userdata[0];
             Assert.AreEqual("Roy", first.name);
             Assert.AreEqual("van Borkel", first.surname);
             Assert.AreEqual("MALE", first.gender);
             Assert.AreEqual(713863410, first.birthday);
 
-            Userdata last = teacherParser.userData[teacherParser.userData.Count - 1];
+            Userdata last = teacherParser.SchoolData.userdata[teacherParser.SchoolData.userdata.Count - 1];
             Assert.AreEqual("Cirilla", last.name);
             Assert.AreEqual("Riannon", last.surname);
             Assert.AreEqual("FEMALE", last.gender);

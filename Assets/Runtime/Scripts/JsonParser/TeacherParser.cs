@@ -11,10 +11,8 @@ using System.Collections;
 
 namespace Assets.Runtime.Scripts.JsonParser
 {
-    public class TeacherParser : JsonParser
+    public class TeacherParser : SchoolParser
     {
-        public List<Userdata> userData { get; private set; }
-        public List<Subject> subjectData { get; private set; }
         public TeacherParser(string jsonData) : base(jsonData)
         {
 
@@ -26,8 +24,8 @@ namespace Assets.Runtime.Scripts.JsonParser
             IList<JToken> userDataResults = data["userdata"].Children().ToList();
             IList<JToken> subjectsResults = data["subjects"].Children().ToList();
 
-            userData = ConvertJTokensToList<Userdata>(userDataResults);
-            subjectData = ConvertJTokensToList<Subject>(subjectsResults);
+            SchoolData.userdata = ConvertJTokensToList<Userdata>(userDataResults);
+            SchoolData.subjects = ConvertJTokensToList<Subject>(subjectsResults);
         }
     }
 }
