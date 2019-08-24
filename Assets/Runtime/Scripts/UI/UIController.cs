@@ -1,4 +1,5 @@
 ﻿using Assets.Runtime.Scripts.JsonParser;
+using Assets.Runtime.Scripts.JsonParser.DataTypes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,42 +24,26 @@ public class UIController : MonoBehaviour
         if (!UserDataText) Debug.LogError(nameof(UserDataText) + " has not been set.");
 
         ClearData();
-        StartCoroutine(ParseOverTimeWithTeacherParser());
-    }
 
-    private IEnumerator ParseOverTimeWithTeacherParser()
-    {
         TeacherParser parser = new TeacherParser(SchoolDataJson.text);
         parser.ParseFullJson();
 
-        foreach (var item in parser.SchoolData.userdata)
-        {
-            UserDataText.text += item + "\n";
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        foreach (var item in parser.SchoolData.subjects)
-        {
-            SubjectDataText.text += item + "\n";
-            yield return new WaitForSeconds(0.5f);
-        }
+        StartCoroutine(ProcessSchoolDataToUIWithInterval(parser.SchoolData, 0.2f));
     }
 
-    private IEnumerator ParseOverTimeWithStudentParser()
+    private IEnumerator ProcessSchoolDataToUIWithInterval(SchoolData schoolData, float interval)
     {
-        StudentParser parser = new StudentParser(SchoolDataJson.text);
-        parser.ParseFullJson();
+        yield return StartCoroutine(ProcessDataToUIWithInterval(schoolData.userdata, UserDataText, interval));
+        yield return StartCoroutine(ProcessDataToUIWithInterval(schoolData.subjects, SubjectDataText, interval));
+        yield return StartCoroutine(ProcessDataToUIWithInterval(schoolData.classes, ClassesDataText, interval));
+    }
 
-        foreach (var item in parser.SchoolData.userdata)
+    private IEnumerator ProcessDataToUIWithInterval<T>(List<T> userData, Text targetTextArea, float interval)
+    {
+        foreach (var data in userData)
         {
-            UserDataText.text += item + "\n";
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        foreach (var item in parser.SchoolData.classes)
-        {
-            ClassesDataText.text += item + "\n";
-            yield return new WaitForSeconds(0.5f);
+            targetTextArea.text += data + "\n";
+            yield return new WaitForSeconds(interval);
         }
     }
 
