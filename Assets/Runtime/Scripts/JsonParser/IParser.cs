@@ -2,6 +2,6 @@
 {
     interface IParser
     {
-        void Parse();
+        void ParseFullJson();
     }
 }

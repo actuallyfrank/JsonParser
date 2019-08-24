@@ -21,14 +21,21 @@ namespace Tests
         [Test]
         public void SchoolDataIsNotNull()
         {
-            Assert.IsNotNull(schoolJsonData);
+            JsonParser jsonParser = new JsonParser(schoolJsonData);
+            jsonParser.ParseFullJson();
+
+            Assert.IsNotNull(jsonParser.SchoolData);
         }
 
         [Test]
-        public void ReadWithStandardJsonParser()
+        public void ContainsRightAmountOfSchoolData()
         {
             JsonParser jsonParser = new JsonParser(schoolJsonData);
-            jsonParser.Parse();
+            jsonParser.ParseFullJson();
+
+            Assert.AreEqual(5, jsonParser.SchoolData.classes.Count);
+            Assert.AreEqual(20, jsonParser.SchoolData.userdata.Count);
+            Assert.AreEqual(4, jsonParser.SchoolData.subjects.Count);
         }
     }
 }

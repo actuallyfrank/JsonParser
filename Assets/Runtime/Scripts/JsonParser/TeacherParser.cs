@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
+using System.Collections;
 
 namespace Assets.Runtime.Scripts.JsonParser
 {
@@ -19,9 +20,9 @@ namespace Assets.Runtime.Scripts.JsonParser
 
         }
 
-        public override void Parse()
+        public override void ParseFullJson()
         {     
-            JObject data = JObject.Parse(jsonData);
+            JObject data = JObject.Parse(JsonData);
             IList<JToken> userDataResults = data["userdata"].Children().ToList();
             IList<JToken> subjectsResults = data["subjects"].Children().ToList();
 
