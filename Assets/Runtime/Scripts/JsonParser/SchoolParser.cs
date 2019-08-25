@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using Assets.Runtime.Scripts.JsonParser.DataTypes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using UnityEngine;
 
 namespace Assets.Runtime.Scripts.JsonParser
 {
