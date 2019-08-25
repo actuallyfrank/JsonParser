@@ -1,5 +1,6 @@
 ﻿using Assets.Runtime.Scripts.JsonParser;
 using Assets.Runtime.Scripts.JsonParser.DataTypes;
+using Assets.Runtime.Scripts.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,7 @@ public class UIController : MonoBehaviour
     public float ProcessingTime = 1f;
 
     public ParseType CurrentParseType { get; private set; } = ParseType.Teacher;
+    public SchoolParser CurrentParser { get; private set; }
 
     void Start()
     {
@@ -45,18 +47,20 @@ public class UIController : MonoBehaviour
     {
         ClearData();
 
-        SchoolParser parser = InitializeParser(SelectNextParser(CurrentParseType));
-        parser.ParseFullJson();
+        CurrentParser = InitializeParser(SelectNextParser(CurrentParseType));
+        CurrentParser.ParseJson();
 
         StopAllCoroutines();
-        StartCoroutine(ProcessSchoolDataToUIWithInterval(parser.SchoolData, ProcessingTime));
+        StartCoroutine(ProcessSchoolDataToUIWithInterval(CurrentParser.SchoolData, ProcessingTime));
 
         CurrentParserText.text = "Parser type: " + CurrentParseType.ToString();
     }
 
     public void PrintDataToLocation()
     {
-        Debug.LogError("This method is not implemented yet.");
+        SchoolParser parser = new SchoolParser(SchoolDataJson.text);
+        parser.ParseJson();
+        SaveFile.SaveSchoolDataToUsersLocation(parser.SchoolData);
     }
 
     private ParseType SelectNextParser(ParseType current)

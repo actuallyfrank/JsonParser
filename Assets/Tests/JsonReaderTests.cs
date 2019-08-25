@@ -21,7 +21,7 @@ namespace Tests
         public void SchoolDataIsNotNull()
         {
             SchoolParser jsonParser = new SchoolParser(schoolJsonData);
-            jsonParser.ParseFullJson();
+            jsonParser.ParseJson();
 
             Assert.IsNotNull(jsonParser.SchoolData);
         }
@@ -30,7 +30,7 @@ namespace Tests
         public void ContainsRightAmountOfSchoolData()
         {
             SchoolParser jsonParser = new SchoolParser(schoolJsonData);
-            jsonParser.ParseFullJson();
+            jsonParser.ParseJson();
 
             Assert.AreEqual(5, jsonParser.SchoolData.classes.Count);
             Assert.AreEqual(20, jsonParser.SchoolData.userdata.Count);
