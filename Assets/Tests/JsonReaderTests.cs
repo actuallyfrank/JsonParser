@@ -4,7 +4,6 @@ using System.Threading;
 using Assets.Runtime.Scripts.JsonParser;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 namespace Tests
 {
