@@ -21,6 +21,8 @@ namespace Assets.Runtime.Scripts.JsonParser
         public override void ParseJson()
         {     
             JObject data = JObject.Parse(JsonData);
+
+            // Only parse the relevat datas
             IList<JToken> userDataResults = data["userdata"].Children().ToList();
             IList<JToken> subjectsResults = data["subjects"].Children().ToList();
 

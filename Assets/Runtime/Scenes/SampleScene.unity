@@ -659,7 +659,7 @@ MonoBehaviour:
   ClassesDataText: {fileID: 6229359986719523402}
   CurrentParserText: {fileID: 485146457}
   SchoolDataJson: {fileID: 4900000, guid: 3a312e7b8617e6847bce7e2094624a50, type: 3}
-  ProcessingTime: 0.25
+  ProcessingTime: 2
 --- !u!1 &1594092494
 GameObject:
   m_ObjectHideFlags: 0

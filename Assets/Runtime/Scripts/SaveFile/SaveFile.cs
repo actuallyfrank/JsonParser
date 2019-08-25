@@ -12,7 +12,6 @@ namespace Assets.Runtime.Scripts.Save
             var path = StandaloneFileBrowser.SaveFilePanel("Save File", "", "", "txt");
 
             IStructureModifier modifiedStructure = new ClassOverview();
-
             File.WriteAllText(path, modifiedStructure.GenerateData(schoolData));           
         }
     }
