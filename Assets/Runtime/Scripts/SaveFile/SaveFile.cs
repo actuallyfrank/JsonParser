@@ -1,12 +1,7 @@
 ﻿using Assets.Runtime.Scripts.JsonParser.DataTypes;
-using Assets.Runtime.Scripts.ModifiedStructures;
+using Assets.Runtime.Scripts.StructureModifier;
 using SFB;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Runtime.Scripts.Save
 {
