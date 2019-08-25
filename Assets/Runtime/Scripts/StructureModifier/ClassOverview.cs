@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assets.Runtime.Scripts.JsonParser;
 using Assets.Runtime.Scripts.JsonParser.DataTypes;
 
@@ -17,7 +15,6 @@ namespace Assets.Runtime.Scripts.StructureModifier
             foreach (var item in schoolData.classes)
             {
                 total += $"{item.name}:";
-
                 total += $"subjects: ";
 
                 foreach (var subject in SubjectsByClassId(schoolData, item.id))
@@ -30,8 +27,6 @@ namespace Assets.Runtime.Scripts.StructureModifier
                 {
                     total += $"{user.GenderPrefix()}{user.surname}, {user.name}; \n ";
                 }
-
-
             }
 
             return total;

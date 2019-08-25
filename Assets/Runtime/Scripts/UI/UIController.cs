@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
     [Tooltip("The time it will take before every individual element is processed.")][Range(0, 3f)]
     public float ProcessingTime = 1f;
 
-    public ParseType CurrentParseType { get; private set; } = ParseType.Teacher;
+    public ParseType CurrentParseType { get; private set; } = ParseType.Default;
     public SchoolParser CurrentParser { get; private set; }
 
     void Start()
