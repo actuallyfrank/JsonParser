@@ -31,7 +31,7 @@ public class UIController : MonoBehaviour
     public TextAsset SchoolDataJson;
 
     [Tooltip("The time it will take before every individual element is processed.")][Range(0, 3f)]
-    public float ProcessingTime = 1f;
+    public float ProcessingTime = 2f;
 
     public ParseType CurrentParseType { get; private set; } = ParseType.Default;
     public SchoolParser CurrentParser { get; private set; }
@@ -45,7 +45,7 @@ public class UIController : MonoBehaviour
 
     public void SwitchParser()
     {
-        ClearData();
+        ClearUIData();
 
         CurrentParser = InitializeParser(SelectNextParser(CurrentParseType));
         CurrentParser.ParseJson();
@@ -53,6 +53,7 @@ public class UIController : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(ProcessSchoolDataToUIWithInterval(CurrentParser.SchoolData, ProcessingTime));
 
+        // Update the name of the current parser on the UI
         CurrentParserText.text = "Parser type: " + CurrentParseType.ToString();
     }
 
@@ -106,7 +107,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void ClearData()
+    private void ClearUIData()
     {
         UserDataText.text = "";
         SubjectDataText.text = "";

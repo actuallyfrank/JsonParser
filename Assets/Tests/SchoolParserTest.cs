@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Tests
 {
-    public class JsonReader
+    public class SchoolParserTest
     {
         private string schoolJsonData;
 
