@@ -17,7 +17,7 @@ namespace Assets.Runtime.Scripts.JsonParser
             this.SchoolData = new SchoolData();
         }
 
-        public virtual void ParseFullJson()
+        public virtual void ParseJson()
         {
             SchoolData = JsonConvert.DeserializeObject<SchoolData>(JsonData);
         }

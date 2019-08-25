@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Runtime.Scripts.JsonParser;
+﻿using Assets.Runtime.Scripts.JsonParser;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 namespace Tests
 {
@@ -28,7 +25,7 @@ namespace Tests
         {
             StudentParser studentParser = new StudentParser(schoolJsonData);
 
-            studentParser.ParseFullJson();
+            studentParser.ParseJson();
 
             Userdata first = studentParser.SchoolData.userdata[0];
             Assert.AreEqual("Roy", first.name);
@@ -48,7 +45,7 @@ namespace Tests
         {
             StudentParser studentParser = new StudentParser(schoolJsonData);
 
-            studentParser.ParseFullJson();
+            studentParser.ParseJson();
 
             Class first = studentParser.SchoolData.classes[0];
             Assert.AreEqual(1, first.id);
