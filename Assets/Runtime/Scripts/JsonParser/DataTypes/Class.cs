@@ -10,7 +10,7 @@ namespace Assets.Runtime.Scripts.JsonParser
 
         public override string ToString()
         {
-            string text = $"Name: {name} subjects: ";
+            string text = $"{name} subjects: ";
             foreach (var subject in subjects)
             {
                 text += $"{subject}, ";

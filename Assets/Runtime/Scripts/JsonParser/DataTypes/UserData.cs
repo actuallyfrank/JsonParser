@@ -11,9 +11,16 @@ namespace Assets.Runtime.Scripts.JsonParser
         public List<int> subjects { get; set; }
         public int @class { get; set; }
 
+        private string GetGenderPrefix(string gender)
+        {
+            if (gender == "MALE") return "Mr. ";
+            if (gender == "FEMALE") return "MS. ";
+            return "Mr/Ms. ";
+        }
+
         public override string ToString()
         {
-            return $"Name: {name}, Surname: {surname}, Gender: {gender}, Birthday: {birthday}";
+            return $"{GetGenderPrefix(gender)} {name} {surname}, Birthday: {birthday}";
         }
     }
 }
